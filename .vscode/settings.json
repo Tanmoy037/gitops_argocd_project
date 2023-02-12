@@ -1,4 +1,4 @@
-{  
+{
    "jenkins-runner.jobs": {
         "gitops_argocd_CI": {
             "isDefault": true,
@@ -8,7 +8,7 @@
    },
    "jenkins-runner.hostConfigs": {
     "jenkins-master": {
-        "url": "http://54.174.216.215:8080",
+        "url": "http://127.0.0.1:8080",
         "user": "dev-tanmoy",
         "password": "Tanmoy@2000",
         "useCrumbIssuer": true,

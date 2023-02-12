@@ -18,7 +18,7 @@ pipeline{
             steps{
                 script{
 
-                    cleanWs(deleteDirs: true, excludeDirs: [])
+                    cleanWs()
                     }
                 }
             }
@@ -27,12 +27,11 @@ pipeline{
                 steps{
                     script{
                         git credentialsId: 'github',
-                        url: 'https://github.com/Tanmoy037/gitops_argocd_project.git'
-                        branch: '/main'  
+                        url: 'https://github.com/Tanmoy037/gitops_argocd_project.git',
+                        branch: 'main'  
                     }   
                 }
             }
         }
 
 }
-
