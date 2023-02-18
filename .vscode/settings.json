@@ -8,10 +8,10 @@
    },
    "jenkins-runner.hostConfigs": {
     "jenkins-master": {
-        "url": "http://127.0.0.1:8080",
+        "url": "http://54.84.246.27:8080",
         "user": "dev-tanmoy",
-        "password": "Tanmoy@2000",
-        "useCrumbIssuer": true,
+        "password": "Tanmoy",
+        "useCrumbIssuer": true
     }
    }
 }

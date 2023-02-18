@@ -8,7 +8,7 @@ pipeline{
         APP_NAME = "gitops-args-app"
         IMAGE_TAG = "${BUILD_NUMBER}"
         IMAGE_NAME = "${DOCKERHUB_USERNAME}" + "/" + "${APP_NAME}"
-        REGISTRY_NAME = 'dockerhub'
+        REGISTRY_CREDS = 'dockerhub'
     }
 
     stages{
@@ -37,6 +37,18 @@ pipeline{
                         script{
 
                             docker_image = docker.build "${IMAGE_NAME}"
+
+                        }
+                    }
+                }
+                stage{'Push Docker Image'}{
+                    steps{
+                        script{
+
+                            docker.withRegistry{'',REGISTRY_CREDS}{
+                                docker_image.Push{"$BUILD_NUMBER"}
+                                docker_image.Push{"latest"}
+                            }
 
                         }
                     }
