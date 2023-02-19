@@ -13,7 +13,7 @@ spec:
         app: flask-app
     spec:
       containers:
-      - name: flask-app-container
+      - name: flask-app
         image: tanmoy037/gitops-args-app:v1
         resources:
           limits:
