@@ -13,5 +13,8 @@
         "password": "Tanmoy",
         "useCrumbIssuer": true
     }
-   }
+},
+"yaml.schemas": {
+    "kubernetes://schema/apps/v1%40deployment": "file:///c%3A/Users/Tanmoy/Documents/DevOps_Projects/deployment.yaml"
+}
 }
