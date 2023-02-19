@@ -63,7 +63,7 @@ pipeline{
                     }
                 }
               }
-              stage{'Updating kubernetes deployment file'}{
+              stage('Updating kubernetes deployment file'){
                 steps{
                     script{
 
@@ -72,6 +72,23 @@ pipeline{
                         sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' deployment.yaml
                         cat deployment.yaml
                         """
+                    }
+                }
+              }
+              stage('Push the changed deployment file to Github'){
+                steps{
+                    script{
+                        sh """
+                        git config --global user.name "Tanmoy037"
+                        git config --global user.email "tanmoysantra67@gmail.com"
+                        git add deployment.yaml
+                        git commit -m "updated the deployment file"
+                        """
+                        withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
+
+                        sh "git push https://github.com/Tanmoy037/gitops_argocd_project.git main"
+
+                      }   
                     }
                 }
               }
